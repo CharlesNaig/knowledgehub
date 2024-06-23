@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Contact Us | KNH</title>
+    <link rel="stylesheet" href="assets/css/contact.css" />
+    <!-- Fontawesome CDN Link -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <div class="left-side">
+          <h4 style="color: #00bbff">KnowledgeHub Enterprises</h4>
+          <div class="address details">
+            <i class="fas fa-map-marker-alt"></i>
+            <div class="topic">Address</div>
+            <div class="text-one">MNL, PH</div>
+          </div>
+          <div class="discord details">
+            <i class="fab fa-discord"></i>
+            <div class="topic">Discord</div>
+            <div class="text-one">https://dsc.gg/knh</div>
+          </div>
+          <div class="email details">
+            <i class="fas fa-envelope"></i>
+            <div class="topic">Email</div>
+            <div class="text-one">knowledgehubenterprises@gmail.com</div>
+          </div>
+        </div>
+        <div class="right-side">
+          <div class="topic-text">Send us a message</div>
+          <p>
+            Email us with any questions or inquiries about our services. We are
+            happy to answer your emails from our satisfied clients.
+          </p>
+          <form id="contactForm">
+            <div class="input-box">
+              <input
+                type="text"
+                id="name"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <input
+                type="email"
+                id="email"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+            <div class="input-box">
+              <input
+                type="text"
+                id="message"
+                placeholder="Enter your message"
+                required
+              />
+            </div>
+            <div class="button">
+              <button type="submit">Send Message</button>
+            </div>
+            <a href="/index" class="float">
+              <i class="fa fa-home my-float"></i>
+            </a>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script>
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const webhookURL =
+            "https://discord.com/api/webhooks/1252613266711253084/FwdYWDd93oBf5gSZpHbNqSg8eDfD7qd0pFWICdavpuYeg3lnNJQ4kXkeYKDzVLf6hfR6";
+          const webhookName = "Contact Us | KNH"; // Webhook Name
+          const webhookIcon =
+            "https://media.discordapp.net/attachments/1252939977109798912/1252940094617161779/aboutimg-removebg-preview.png?ex=6678a825&is=667756a5&hm=0524773e2e11dfde8ddc3fd1869886f0902369b6bf01cd8a52aa99c723e88b4f&=&format=webp&quality=lossless&width=423&height=423"; // Webhook Icon
+          const adminRoleID = "1251070658973274184";
+          const name = document.getElementById("name").value;
+          const email = document.getElementById("email").value;
+          const message = document.getElementById("message").value;
+
+          const payload = {
+            content: `<@&${adminRoleID}>`,
+            username: webhookName,
+            avatar_url: webhookIcon,
+            embeds: [
+              {
+                title: "New Message from Contact Page",
+                color: 2105376, // Decimal color for #202020
+                fields: [
+                  {
+                    name: "Name",
+                    value: name,
+                    inline: true,
+                  },
+                  {
+                    name: "Email",
+                    value: email,
+                    inline: true,
+                  },
+                  {
+                    name: "Message",
+                    value: message,
+                    inline: false,
+                  },
+                ],
+
+                footer: {
+                  text: `KNH Contact Us Notifer | by Dev. Lloyd`,
+                },
+                timestamp: new Date(),
+              },
+            ],
+          };
+
+          fetch(webhookURL, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(payload),
+          })
+            .then((response) => {
+              if (response.ok) {
+                const button = document.querySelector("button");
+                button.innerHTML = "Message Sent!";
+                button.disabled = true;
+                document.getElementById("contactForm").reset();
+              } else {
+                alert(
+                  "There was an error sending your message. Please try again.",
+                );
+              }
+            })
+            .catch((error) => {
+              alert(
+                "There was an error sending your message. Please try again.",
+              );
+              console.error("Error:", error);
+            });
+        });
+    </script>
+  </body>
+</html>

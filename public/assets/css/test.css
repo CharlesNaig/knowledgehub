@@ -1,0 +1,344 @@
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    transition: background-color 0.5s, color 0.5s;
+    overflow-x: hidden;
+}
+
+body.dark-mode {
+    color: #ffffff;
+    background-color: #1e2a38;
+}
+
+body.light-mode {
+    color: #000000;
+    background-color: #f0f0f0;
+}
+
+
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #243447;
+    width: 100%;
+    transition: background-color 0.5s;
+}
+
+body.light-mode .navbar {
+    background-color: #e0e0e0;
+}
+
+.navbar-left h2 {
+    color: #00aaff;
+    margin: 0;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-left: auto;
+    margin-right: 55px;
+}
+
+.navbar-right .theme-toggle {
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.navbar-right .theme-toggle:hover {
+    transform: rotate(20deg);
+}
+
+.navbar-right a {
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar-right a:hover {
+    color: #00aaff;
+}
+
+.navbar-right .user-profile {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.navbar-right .user-profile img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    margin-top: 20px; /* Adjusted to add some spacing between the navbar and the container */
+}
+
+.sidebar {
+    width: 200px;
+    padding: 20px;
+    background-color: #243447;
+    transition: background-color 0.5s;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 60px); /* Full height minus navbar height */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+body.light-mode .sidebar {
+    background-color: #e0e0e0;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: color 0.3s;
+}
+
+body.light-mode .sidebar ul li a {
+    color: #000000;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    transition: padding 0.3s;
+    border-left: 1px solid #ccc; /* Boundary between sidebar and main content */
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.card {
+    background-color: #30475e;
+    padding: 20px;
+    border-radius: 10px;
+    transition: background-color 0.5s, transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+body.light-mode .card {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.card h3 {
+    margin: 0;
+}
+
+.percentage {
+    color: #00ff00;
+}
+
+.chart {
+    background-color: #30475e;
+    padding: 20px;
+    border-radius: 10px;
+    transition: background-color 0.5s;
+}
+
+body.light-mode .chart {
+    background-color: #ffffff;
+}
+
+/* Media Queries for Responsiveness */
+
+@media (max-width: 768px) {
+    .dashboard {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar-left,
+    .navbar-right {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .navbar-left h2 {
+        margin-bottom: 10px;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 10px;
+        height: auto; /* Adjust height for mobile */
+    }
+
+    .main-content {
+        padding: 10px;
+        border-left: none; /* Remove boundary on smaller screens */
+    }
+}
+
+
+.reaction-roles-container {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.reaction-roles-container h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.reaction-roles-container p {
+    margin-bottom: 20px;
+}
+
+.role {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.get-role-button {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Blue color */
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.get-role-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+.verification-alert {
+    background-color: #f8d7da; 
+    color: #721c24; 
+    padding: 15px;
+    border: 1px solid #f5c6cb; 
+    border-radius: 5px;
+    margin-bottom: 20px; 
+}
+
+.verification-alert.success {
+    background-color: #d4edda; 
+    color: #155724; 
+    border-color: #c3e6cb; 
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .reaction-roles-container {
+        padding: 15px;
+    }
+
+    .reaction-roles-container h2 {
+        font-size: 1.25em;
+    }
+
+    .role {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .get-role-button {
+        margin-top: 10px;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .reaction-roles-container {
+        padding: 10px;
+    }
+
+    .reaction-roles-container h2 {
+        font-size: 1em;
+    }
+
+    .get-role-button {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-right {
+        gap: 5px;
+    }
+
+    .navbar-left h2 {
+        font-size: 1.2em;
+    }
+
+    .navbar-right a {
+        padding: 5px;
+        font-size: 0.9em;
+    }
+
+    .navbar-right .user-profile img {
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+    }
+}
+
+
+.purchaseButton,
+.openFile,
+.downloadFile{
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff; /* Blue color */
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.purchaseButton:hover,
+.openFile:hover,
+.downloadFile:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+
+
+/* ticket */
+

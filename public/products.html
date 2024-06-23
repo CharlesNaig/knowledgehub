@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>User Dashboard | KNH</title>
+        <link rel="stylesheet" href="assets/css/test.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        />
+    </head>
+    <body class="dark-mode">
+        <nav class="navbar">
+            <div class="navbar-left">
+                <h2>KnowledgeHub Enterprises</h2>
+            </div>
+            <div class="navbar-right">
+                <div class="theme-toggle" onclick="toggleTheme()">
+                    <i class="fas fa-moon"></i>
+                </div>
+                <a href="#"><i class="fas fa-bell"></i></a>
+                <a href="#" class="user-profile">
+                    <img src="" alt="User Avatar" id="userAvatar" />
+                    <span class="username" id="userName"></span>
+                </a>
+            </div>
+        </nav>
+        <div class="container">
+            <aside class="sidebar">
+                <ul>
+                    <li>
+                        <a href="/dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="/stats"><i class="fas fa-cogs"></i> Statistics</a>
+                    </li>
+                    <li>
+                        <a href="/products"><i class="fas fa-bars"></i> Products</a>
+                    </li>
+                    <li>
+                        <a href="/bot_setting"><i class="fas fa-robot"></i> Bot Settings</a>
+                    </li>
+                    <li>
+                        <a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </li>
+                </ul>
+            </aside>
+            <main class="main-content">
+                <div id="verificationAlert" class="verification-alert">
+                    <p>You are not verified.</p>
+                    <button id="verifyButton" class="get-role-button">
+                        Verify
+                    </button>
+                </div>
+
+                <h1>KnowledgeHub Enterprises - Products</h1>
+                <div class="dashboard">
+                    <div class="card">
+                        <h3>Services Offered</h3>
+                        <ul>
+                            <li>
+                                <p>Programing Guides</p>
+                            </li>
+                            <li>
+                                <p>Academic Guides</p>
+                            </li>
+                            <li>
+                                <p>Graphic Designs</p>
+                            </li>
+                        </ul>
+                        <p>
+                            Wanting to purchase something from our services?
+                            <br />
+                            Click the button below!
+                        </p>
+                        <button id="purchaseButton" class="purchaseButton">
+                            Purchase
+                        </button>
+                    </div>
+                    <div class="card">
+                        <h3>Purchased Items</h3>
+                        <ul>
+                            <li>
+                                <p>
+                                    Product 1 -
+                                    <button class="openFile">
+                                        <i class="fa-solid fa-folder-open"></i>
+                                        Open File
+                                    </button>
+                                    <button class="downloadFile">
+                                        <i
+                                            class="fa fa-download"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </button>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Product 2 -
+                                    <button class="openFile">
+                                        <i class="fa-solid fa-folder-open"></i>
+                                        Open File
+                                    </button>
+                                    <button class="downloadFile">
+                                        <i
+                                            class="fa fa-download"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </button>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Product 3 -
+                                    <button class="openFile">
+                                        <i class="fa-solid fa-folder-open"></i>
+                                        Open File
+                                    </button>
+                                    <button class="downloadFile">
+                                        <i
+                                            class="fa fa-download"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </button>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Product 4 -
+                                    <button class="openFile">
+                                        <i class="fa-solid fa-folder-open"></i>
+                                        Open File
+                                    </button>
+                                    <button class="downloadFile">
+                                        <i
+                                            class="fa fa-download"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </button>
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    Product 5 -
+                                    <button class="openFile">
+                                        <i class="fa-solid fa-folder-open"></i>
+                                        Open File
+                                    </button>
+                                    <button class="downloadFile">
+                                        <i
+                                            class="fa fa-download"
+                                            aria-hidden="true"
+                                        ></i>
+                                    </button>
+                                </p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h1>Available Products</h1>
+                    <div class="card">
+                        <h4>Product 1</h4>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+                        <button id="purchaseButton" class="purchaseButton">Purchase</button>
+                    </div><br>
+                    <div class="card">
+                        <h4>Product 2</h4>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+                        <button id="purchaseButton" class="purchaseButton">Purchase</button>
+                    </div><br>
+                    <div class="card">
+                        <h4>Product 3</h4>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+                        <button id="purchaseButton" class="purchaseButton">Purchase</button>
+                    </div><br>
+                    <div class="card">
+                        <h4>Product 4</h4>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+                        <button id="purchaseButton" class="purchaseButton">Purchase</button>
+                    </div><br>
+                    <div class="card">
+                        <h4>Product 5</h4>
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
+                        <button class="purchaseButton">Purchase</button>
+                    </div>
+            </main>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="script.js"></script>
+        <script src="assets/js/test.js"></script>
+        <script src="assets/js/server.js"></script>
+
+        <script>
+            // Get user ID dynamically and store it for later use
+            let userId;
+            let hasPurchased = false; // Flag to indicate if the purchase has been made
+
+            document.addEventListener("DOMContentLoaded", async () => {
+                try {
+                    const response = await fetch("/api/user");
+                    if (!response.ok) {
+                        throw new Error("Network response was not ok");
+                    }
+                    const user = await response.json();
+                    document.querySelector(".user-profile img").src =
+                        `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
+                    document.querySelector(".username").textContent =
+                        `${user.username}#${user.discriminator}`;
+                    userId = user.id; // Store user ID for later use
+                } catch (error) {
+                    console.error(
+                        "There was a problem with the fetch operation:",
+                        error,
+                    );
+                }
+            });
+
+            document.getElementById("purchaseButton")
+            document.addEventListener("click", function () {
+                    // Redirect to payment page
+                    window.location.href = "/payment";
+                });
+
+            document.addEventListener("DOMContentLoaded", () => {
+                const themeToggle = document.createElement("div");
+                themeToggle.classList.add("theme-toggle");
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                document.querySelector(".navbar").appendChild(themeToggle);
+
+                themeToggle.addEventListener("click", () => {
+                    document.body.classList.toggle("dark-mode");
+                    document.body.classList.toggle("light-mode");
+                    const icon = themeToggle.querySelector("i");
+                    if (document.body.classList.contains("dark-mode")) {
+                        icon.classList.remove("fa-sun");
+                        icon.classList.add("fa-moon");
+                    } else {
+                        icon.classList.remove("fa-moon");
+                        icon.classList.add("fa-sun");
+                    }
+                });
+
+                // Set initial theme
+                if (document.body.classList.contains("dark-mode")) {
+                    themeToggle.querySelector("i").classList.add("fa-moon");
+                } else {
+                    themeToggle.querySelector("i").classList.add("fa-sun");
+                }
+            });
+        </script>
+
+        <script>
+            window.addEventListener("DOMContentLoaded", async () => {
+                // Check if the verification status is already stored in localStorage
+                const storedVerificationStatus =
+                    localStorage.getItem("verificationStatus");
+                if (storedVerificationStatus) {
+                    // If it's stored, use it to update the verification box
+                    updateVerificationStatus(
+                        JSON.parse(storedVerificationStatus),
+                    );
+                } else {
+                    // If not stored, fetch the user data and update the verification box
+                    await updateVerificationStatusFromServer();
+                }
+            });
+
+            async function updateVerificationStatusFromServer() {
+                try {
+                    const response = await fetch("/api/user");
+                    if (response.ok) {
+                        const userData = await response.json();
+                        const hasNonVerifiedRole = userData.roles.includes(
+                            "1251094955707859004",
+                        ); // Replace "NON_VERIFIED_ROLE_ID" with the actual role ID
+                        const verificationStatus = {
+                            hasNonVerifiedRole: hasNonVerifiedRole,
+                            timestamp: Date.now(),
+                        };
+                        // Store the verification status in localStorage
+                        localStorage.setItem(
+                            "verificationStatus",
+                            JSON.stringify(verificationStatus),
+                        );
+                        // Update the verification box
+                        updateVerificationStatus(verificationStatus);
+                    }
+                } catch (error) {
+                    console.error("Error fetching user data:", error);
+                }
+            }
+
+            function updateVerificationStatus(verificationStatus) {
+                const verificationAlert =
+                    document.getElementById("verificationAlert");
+                const verificationMessage =
+                    verificationAlert.querySelector("p");
+                if (verificationStatus.hasNonVerifiedRole) {
+                    verificationMessage.textContent = "You are not verified.";
+                    verificationAlert.style.display = "block";
+                } else {
+                    verificationMessage.textContent =
+                        "Congrats, you are now verified! Please enjoy!";
+                    verificationAlert.style.display = "none";
+                }
+            }
+
+            document
+                .getElementById("verifyButton")
+                .addEventListener("click", async () => {
+                    const response = await fetch("/verify", { method: "POST" });
+                    if (response.ok) {
+                        // Update the verification status in localStorage
+                        const verificationStatus = {
+                            hasNonVerifiedRole: false,
+                            timestamp: Date.now(),
+                        };
+                        localStorage.setItem(
+                            "verificationStatus",
+                            JSON.stringify(verificationStatus),
+                        );
+                        // Update the verification box
+                        updateVerificationStatus(verificationStatus);
+                        alert("Verification successful!");
+                        // You can optionally reload the page here to reflect the changes
+                    } else {
+                        alert("Verification failed. Please try again later.");
+                    }
+                });
+        </script>
+    </body>
+</html>

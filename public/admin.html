@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      width: 80%;
+      margin: auto;
+      padding: 20px;
+    }
+    input,
+    button {
+      margin: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Admin Panel - Add Product to Client Account</h2>
+    <input type="text" id="client-id" placeholder="Client ID" />
+    <input type="text" id="product-name" placeholder="Product Name" />
+    <input type="text" id="admin-name" placeholder="Admin Name" />
+    <button onclick="addProduct()">Add Product</button>
+    <div id="product-list"></div>
+  </div>
+
+  <script>
+    async function addProduct() {
+      const clientId = document.getElementById("client-id").value;
+      const productName = document.getElementById("product-name").value;
+      const adminName = document.getElementById("admin-name").value;
+
+      if (!clientId || !productName || !adminName) {
+        alert("All fields are required");
+        return;
+      }
+
+      try {
+        const response = await fetch("/add-product", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ clientId, productName, adminName }),
+        });
+
+        if (response.ok) {
+          const productList = document.getElementById("product-list");
+          productList.innerHTML +=
+            `<p>Product ${productName} added to client ${clientId} by ${adminName}.</p>`;
+
+          // Clear input fields
+          document.getElementById("client-id").value = "";
+          document.getElementById("product-name").value = "";
+          document.getElementById("admin-name").value = "";
+        } else {
+          alert("Error adding product");
+        }
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Error adding product");
+      }
+    }
+  </script>
+</body>
+</html>

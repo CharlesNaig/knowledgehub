@@ -1,0 +1,189 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.floating-button {
+    position: fixed;
+    bottom: 20px;
+    left: 20px; 
+    width: 60px;
+    height: 60px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.floating-button:hover {
+    background-color: #0056b3;
+}
+
+.floating-button i {
+    font-size: 24px;
+}
+
+.hidden {
+    display: none;
+}
+
+#floating-button:hover + #discord-button,
+#floating-button:hover + #contact-button {
+    display: flex;
+}
+
+.discord-widget {
+    bottom: 90px;
+    left: 20px; 
+    background-color: #7289da;
+    transition: transform 0.3s ease;
+}
+
+.contact-form {
+    bottom: 160px;
+    left: 20px; 
+    background-color: #ff6f61;
+    transition: transform 0.3s ease;
+}
+
+.form {
+    position: fixed;
+    bottom: 90px;
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 300px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    transform: scale(0);
+    opacity: 0;
+}
+
+.form.visible {
+    transform: scale(1) translateX(-50%); 
+    opacity: 1;
+}
+
+.close-form {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: #aaa;
+    margin-bottom: 10px;
+}
+
+.close-form:hover {
+    color: #000;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+}
+
+label {
+    width: 100%;
+    text-align: left;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+
+@media screen and (max-width: 600px) {
+    .floating-button {
+        width: 50px;
+        height: 50px;
+        bottom: 10px;
+        left: 10px; 
+    }
+
+    .floating-button i {
+        font-size: 20px;
+    }
+
+    .discord-widget {
+        bottom: 70px;
+        left: 10px; 
+        width: 50px;
+        height: 50px;
+    }
+
+    .contact-form {
+        bottom: 130px;
+        left: 10px; 
+        width: 50px;
+        height: 50px;
+    }
+
+    .form {
+        bottom: 70px;
+        left: 50%; 
+        transform: translateX(-50%); 
+        width: calc(100% - 20px);
+        padding: 10px;
+    }
+
+    .close-form {
+        font-size: 16px;
+        margin-bottom: 5px;
+    }
+
+    .form-group {
+        margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    textarea {
+        padding: 6px;
+    }
+
+    button[type="submit"] {
+        padding: 8px;
+    }
+}

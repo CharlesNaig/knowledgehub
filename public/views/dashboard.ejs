@@ -1,0 +1,93 @@
+<!-- dashboard.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard | KNH</title>
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar">
+            <div class="navbar-brand">
+                <h2>KnowledgeHub Enterprises</h2>
+            </div>
+            <div class="navbar-links">
+                <a href="#"><i class="fas fa-bell"></i></a>
+                <a href="#"><i class="fas fa-user-circle"></i></a>
+            </div>
+        </nav>
+        <aside class="sidebar">
+            <ul>
+                <li><a href="/dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="/dashboard/managebot"><i class="fas fa-robot"></i> Manage Bot</a></li>
+                <li><a href="/dashboard/settings"><i class="fas fa-cogs"></i> Settings</a></li>
+                <li><a href="/login"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </aside>
+        <main class="main-content">
+            <h1>KnowledgeHub Enterprises</h1>
+            <div class="cards">
+                <div class="card">
+                    <h3>Send Embed Message</h3>
+                    <form id="embed-form">
+                        <label for="embed-title">Title:</label>
+                        <input type="text" id="embed-title" name="embed-title">
+                        <label for="embed-description">Description:</label>
+                        <input type="text" id="embed-description" name="embed-description">
+                        <label for="embed-color">Color:</label>
+                        <input type="color" id="embed-color" name="embed-color">
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+                <div class="card">
+                    <h3>Purchase Product</h3>
+                    <form id="purchase-form">
+                        <button type="submit">Purchase</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="assets/js/server.js"></script>
+    <script>
+      const client = require('./index.js').client;
+
+      document.getElementById('purchase-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        client.channels.cache.get('1251061246984323199').send(`**A user has purchased a product!**`)
+          .then(() => {
+            alert('Purchase successful! You will receive your product soon.');
+          })
+          .catch(error => {
+            console.error('Error sending message to Discord channel:', error);
+          });
+      });
+
+      document.getElementById('embed-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const title = document.getElementById('embed-title').value;
+        const description = document.getElementById('embed-description').value;
+        const color = document.getElementById('embed-color').value;
+
+        const embed = {
+          title: title,
+          description: description,
+          color: parseInt(color.replace('#', ''), 16)
+        };
+
+        client.channels.cache.get('1251061246984323199').send({ embeds: [embed] })
+          .then(() => {
+            alert('Embed message sent successfully!');
+          })
+          .catch(error => {
+            console.error('Error sending embed message to Discord channel:', error);
+          });
+      });
+    </script>
+</body>
+</html>

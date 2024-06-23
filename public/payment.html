@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Portal | KNH</title>
+    <link rel="stylesheet" href="assets/css/payment.css" />
+  </head>
+  <body>
+    <div class="payment-form">
+      <h2 class="titleKNH">KNH Payment Portal</h2>
+      <div class="logo">
+        <img class="Gcash" src="assets/images/gcash.png" alt="GCash Logo" />
+        <img class="Paypal" src="assets/images/paypal.png" alt="PayPal Logo" />
+      </div>
+      <form id="paymentForm">
+        <div class="form-left">
+          <div class="form-group">
+            <label for="payment-method">Payment Method</label>
+            <select id="paymentMethod" name="payment-method">
+              <option value="gcash" style="text-align: center">GCash</option>
+              <option value="paypal" style="text-align: center">PayPal</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="product-code">Product Code</label>
+            <select id="productCode" name="product-code">
+              <option value="P01" style="text-align: center">P01</option>
+              <option value="P02" style="text-align: center">P02</option>
+              <option value="P03" style="text-align: center">P03</option>
+              <option value="P04" style="text-align: center">P04</option>
+              <option value="P05" style="text-align: center">P05</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="amount">Amount</label>
+            <select id="amount" name="amount">
+              <option value="1" style="text-align: center">1</option>
+              <option value="2" style="text-align: center">2</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-right">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="Enter your Name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="Enter your Email"
+              required
+            />
+          </div>
+          <button type="submit" class="click-button">PAY NOW</button>
+        </div>
+      </form>
+      <div id="qrCodeContainer" style="display: none">
+        <h3>Scan the QR code to complete your payment</h3>
+        <img id="qrCode" src="" alt="QR Code" />
+      </div>
+    </div>
+  </body>
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"
+  ></script>
+  <script type="text/javascript" src="assets/js/payment.js"></script>
+</html>

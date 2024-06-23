@@ -1,0 +1,10 @@
+{
+    "owner": {
+        "username": "DaisuKiee",
+        "email": "vincentbernaberomeo@gmail.com"
+    },
+    "record": {
+        "CNAME": "daisukie.pages.dev",
+        "A": ["68.65.123.44"]
+    }
+}

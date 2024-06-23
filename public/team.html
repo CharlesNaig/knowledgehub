@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Our Team | KNH</title>
+    <link rel="stylesheet" href="assets/css/team.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style type="text/tailwindcss">
+      @layer components {
+        .card {
+          @apply flex items-center justify-center flex-col gap-2 p-5 w-full sm:w-72 h-full bg-gray-100 border rounded-2xl cursor-pointer transition-transform transform hover:scale-105;
+        }
+        .card:hover {
+          @apply shadow-lg;
+        }
+      }
+      .modal {
+        @apply fixed top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none;
+      }
+      .modal.active {
+        @apply opacity-100 pointer-events-auto;
+      }
+      .modal-content {
+        @apply bg-white rounded-lg p-8 max-w-lg w-full transform transition-transform duration-300 ease-in-out translate-y-10 opacity-0;
+      }
+      .modal-content.active {
+        @apply translate-y-0 opacity-100;
+      }
+
+      /* New modal style */
+      .new-modal {
+        @apply fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-900 bg-opacity-50 transition-opacity duration-300 ease-in-out opacity-0 pointer-events-none;
+      }
+      .new-modal.active {
+        @apply opacity-100 pointer-events-auto;
+      }
+      .new-modal-content {
+        @apply bg-white rounded-lg p-8 max-w-lg w-full transform transition-transform duration-300 ease-in-out translate-y-10 opacity-0 text-center;
+      }
+      .new-modal-content.active {
+        @apply translate-y-0 opacity-100;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="space-bg"></div>
+    <div class="container mx-auto py-8">
+      <div class="flex flex-col text-center gap-4 mb-8 p-4">
+        <div class="text-blue-600 text-sm font-bold" style="color: #00bbff;">Our Team</div>
+        <div class="text-gray-900 text-3xl md:text-4xl font-bold" style="color: white;">
+          KnowledgeHub Enterprises
+        </div>
+        <div class="text-gray-600 md:text-lg" style="color: white;">
+          We're a team to spread all across the world.
+        </div>
+      </div>
+
+      <div class="flex items-center justify-center flex-wrap gap-4 p-4">
+        <div class="card" onclick="showModal('Lloyd Nipales', 'Founder & Developer', 'Founding Officer of KNH.', 'https://scontent.fmnl8-3.fna.fbcdn.net/v/t39.30808-6/434182281_951642316490307_1089368297222935692_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=S04jbvKu8HUQ7kNvgFnQrib&_nc_ht=scontent.fmnl8-3.fna&oh=00_AYBhBpu67JOGYRNlZiPouB1zkbVb7zARErYvmsoJDh4DOA&oe=667C473A', [{title: 'Project 1', description: 'Description of Project 1'}, {title: 'Project 2', description: 'Description of Project 2'}])">
+          <img src="https://scontent.fmnl8-3.fna.fbcdn.net/v/t39.30808-6/434182281_951642316490307_1089368297222935692_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=5f2048&_nc_ohc=S04jbvKu8HUQ7kNvgFnQrib&_nc_ht=scontent.fmnl8-3.fna&oh=00_AYBhBpu67JOGYRNlZiPouB1zkbVb7zARErYvmsoJDh4DOA&oe=667C473A" class="w-24 h-24 rounded-full object-cover transition duration-200 hover:scale-110" />
+          <div class="text-gray-900 text-lg font-bold">Lloyd Nipales</div>
+          <div class="text-purple-600" style="color: #00bbff;">Founder & Developer</div>
+          <div class="text-gray-600">Founding Officer of KNH.</div>
+          <div class="flex items-center justify-center gap-3 mt-2 w-auto h-5 text-gray-600">
+            <a href="https://www.facebook.com/lloydefreim"><i class="fa-brands fa-facebook fa-lg cursor-pointer transition duration-200 hover:text-gray-400"></a></i>
+            <a href="https://discord.com"><i class="fa-brands fa-discord fa-lg cursor-pointer transition duration-200 hover:text-gray-400"></a></i></a>
+            <a href="https://tiktok.com/"><i class="fa-brands fa-tiktok fa-lg cursor-pointer transition duration-200 hover:text-gray-400"></a></i>
+            <a href="https://github.com"><i class="fa-brands fa-github fa-lg cursor-pointer transition duration-200 hover:text-gray-400"></a></i>
+          </div>
+        </div>
+
+        <!-- Repeat other cards here... -->
+         
+        <div class="card" onclick="showModal('Vincent Bernabe', 'Founder & Developer', 'Founding Officer of KNH.', 'https://media.discordapp.net/attachments/886615826055168073/1252658150449090691/1716878769639.jpg?ex=6678f310&is=6677a190&hm=825d73cb5597d8521c59e1d527e4c2b4e78b73f196c11f40d8c7fc5719ec8c1c&=&format=webp&width=355&height=473', [{title: 'Project 1', description: 'ill be okay'}, {title: 'Project 2', description: 'Description of Project 2'}])">
+          <img src="https://media.discordapp.net/attachments/886615826055168073/1252658150449090691/1716878769639.jpg?ex=6678f310&is=6677a190&hm=825d73cb5597d8521c59e1d527e4c2b4e78b73f196c11f40d8c7fc5719ec8c1c&=&format=webp&width=355&height=473" class="w-24 h-24 rounded-full object-cover transition duration-200 hover:scale-110" />
+          <div class="text-gray-900 text-lg font-bold">Vincent Bernabe</div>
+          <div class="text-purple-600" style="color: #00bbff;">Founder & Developer</div>
+          <div class="text-gray-600">Founding Officer of KNH.</div>
+          <div class="flex items-center justify-center gap-3 mt-2 w-auto h-5 text-gray-600">
+            <a href="https://www.facebook.com/lloydefreim"><i class="fa-brands fa-facebook fa-lg cursor-pointer transition duration-200 hover:text-gray-400"></a></i>
+            <a href="https://discord.com"><i class="fa-brands fa-discord fa-lg cursor-pointer transition duration-200 hover:text-gray-400"></a></i></a>
+            <a href="https://tiktok.com/"><i class="fa-brands fa-tiktok fa-lg cursor-pointer transition duration-200 hover:text-gray-400"></a></i>
+            <a href="https://github.com"><i class="fa-brands fa-github fa-lg cursor-pointer transition duration-200 hover:text-gray-400"></a></i>
+          </div>
+        </div>
+        
+        <div class="card" onclick="showNewModal('Charles Marcelo', 'Developer', 'Developers of KNH', 'https://images-ext-1.discordapp.net/external/dMR5YIbIhV1HfBN_X2MSf_3sPGaFWULd0XTGXy3nHsk/https/cdn.discordapp.com/avatars/573709909594734603/dc1d5d1b252481e76a2a2dac2843997e.png?format=webp&quality=lossless', [{title: 'Project 1', description: 'Description of Project 1'}, {title: 'Project 2', description: 'Description of Project 2'}])">
+          <img src="https://images-ext-1.discordapp.net/external/dMR5YIbIhV1HfBN_X2MSf_3sPGaFWULd0XTGXy3nHsk/https/cdn.discordapp.com/avatars/573709909594734603/dc1d5d1b252481e76a2a2dac2843997e.png?format=webp&quality=lossless" class="w-24 h-24 rounded-full object-cover transition duration-200 hover:scale-110" />
+          <div class="text-gray-900 text-lg font-bold">Charles Marcelo</div>
+          <div class="text-purple-600" style="color: #00bbff;">Developer</div>
+          <div class="text-gray-600">Developers of KNH.</div>
+          <div class="flex items-center justify-center gap-3 mt-2 w-auto h-5 text-gray-600">
+            <a href="https://www.facebook.com/lloydefreim"><i class="fa-brands fa-facebook fa-lg cursor-pointer transition duration-200 hover:text-gray-400"></a></i>
+            <a href="https://discord.com"><i class="fa-brands fa-discord fa-lg cursor-pointer transition duration-200 hover:text-gray-400"></a></i></a>
+            <a href="https://tiktok.com/"><i class="fa-brands fa-tiktok fa-lg cursor-pointer transition duration-200 hover:text-gray-400"></a></i>
+              <a href="https://github.com"><i class="fa-brands fa-github fa-lg cursor-pointer transition duration-200 hover:text-gray-400"></a></i>
+              </div>
+              </div>
+              </div>
+              </div>
+
+    <!-- Original Modal structure -->
+    <div id="developerModal" class="modal" onclick="handleModalClick(event)">
+      <div id="modalContent" class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImg" src="" class="w-24 h-24 rounded-full object-cover mb-4" />
+        <div id="modalName" class="text-gray-900 text-lg font-bold"></div>
+        <div id="modalTitle" class="text-purple-600 mb-2" style="color: #00bbff;"></div>
+        <div id="modalDesc" class="text-gray-600 mb-4"></div>
+        <div id="modalPortfolio" class="mt-4">
+          <div class="text-gray-900 text-lg font-bold mb-2">Portfolio</div>
+          <ul class="list-disc list-inside">
+            <!-- Portfolio items will be appended here -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- New Modal structure -->
+    <div id="newDeveloperModal" class="new-modal" onclick="handleNewModalClick(event)">
+      <div id="newModalContent" class="new-modal-content grid grid-cols-2 gap-4 items-center">
+        <span class="close" onclick="closeNewModal()">&times;</span>
+        <img id="newModalImg" src="" class="w-24 h-24 rounded-full object-cover mb-4 col-span-1" />
+        <div class="col-span-1">
+          <div id="newModalName" class="text-gray-900 text-lg font-bold"></div>
+          <div id="newModalTitle" class="text-purple-600 mb-2" style="color: #00bbff;"></div>
+          <div id="newModalDesc" class="text-gray-600 mb-4"></div>
+        </div>
+        <div id="newModalPortfolio" class="col-span-2 mt-4">
+          <div class="text-gray-900 text-lg font-bold mb-2">Portfolio</div>
+          <ul id="portfolioList" class="list-disc list-inside">
+            <!-- Portfolio items will be appended here -->
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+      function showModal(name, title, desc, img, portfolio) {
+        document.getElementById('modalName').textContent = name;
+        document.getElementById('modalTitle').textContent = title;
+        document.getElementById('modalDesc').textContent = desc;
+        document.getElementById('modalImg').src = img;
+
+        const portfolioList = document.querySelector('#modalPortfolio ul');
+        portfolioList.innerHTML = '';
+        portfolio.forEach(item => {
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>${item.title}:</strong> ${item.description}`;
+          portfolioList.appendChild(li);
+        });
+
+        document.getElementById('developerModal').classList.add('active');
+        document.getElementById('modalContent').classList.add('active');
+      }
+
+      function closeModal() {
+        document.getElementById('developerModal').classList.remove('active');
+        document.getElementById('modalContent').classList.remove('active');
+      }
+
+      function handleModalClick(event) {
+        if (event.target === document.getElementById('developerModal')) {
+          closeModal();
+        }
+      }
+
+      function showNewModal(name, title, desc, img, portfolio) {
+        document.getElementById('newModalName').textContent = name;
+        document.getElementById('newModalTitle').textContent = title;
+        document.getElementById('newModalDesc').textContent = desc;
+        document.getElementById('newModalImg').src = img;
+
+        const portfolioList = document.getElementById('portfolioList');
+        portfolioList.innerHTML = '';
+        portfolio.forEach(item => {
+          const li = document.createElement('li');
+          li.innerHTML = `<strong>${item.title}:</strong> ${item.description}`;
+          portfolioList.appendChild(li);
+        });
+
+        document.getElementById('newDeveloperModal').classList.add('active');
+        document.getElementById('newModalContent').classList.add('active');
+      }
+
+      function closeNewModal() {
+        document.getElementById('newDeveloperModal').classList.remove('active');
+        document.getElementById('newModalContent').classList.remove('active');
+      }
+
+      function handleNewModalClick(event) {
+        if (event.target === document.getElementById('newDeveloperModal')) {
+          closeNewModal();
+        }
+      }
+    </script>
+  </body>
+</html>

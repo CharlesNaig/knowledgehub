@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Contact Us | KNH</title>
+        <link rel="stylesheet" href="assets/css/embedSender.css" />
+        <!-- Fontawesome CDN Link -->
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+        />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="content">
+                <div class="left-side">
+                    <h4 style="color: #00bbff">KnowledgeHub Enterprises</h4>
+                    <div class="discord details">
+                        <i class="fab fa-discord"></i>
+                        <div class="topic">Discord</div>
+                        <div class="text-one">https://dsc.gg/knh</div>
+                        <br />
+                    </div>
+                </div>
+                <div class="right-side">
+                    <div class="topic-text">KNH Code Sharing Panel</div>
+                    <p>
+                        This panel serves as the code sharing panel of free
+                        code, scripts and programs that KNH wanted to share
+                        publicly.
+                    </p>
+                    <form id="embedForm">
+                        <div class="input-box">
+                            <input
+                                type="text"
+                                id="title"
+                                placeholder="Enter your Embed Title"
+                                required
+                            />
+                        </div>
+                        <div class="input-box">
+                            <input
+                                type="text"
+                                id="desc"
+                                placeholder="Enter your Embed Description"
+                                required
+                            />
+                        </div>
+                        <div class="button">
+                            <button type="submit">Send Message</button>
+                        </div>
+                        <a href="/index" class="float">
+                            <i class="fa fa-home my-float"></i>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+            document
+                .getElementById("embedForm")
+                .addEventListener("submit", function (event) {
+                    event.preventDefault();
+
+                    const webhookURL =
+                        "https://discord.com/api/webhooks/1252613266711253084/FwdYWDd93oBf5gSZpHbNqSg8eDfD7qd0pFWICdavpuYeg3lnNJQ4kXkeYKDzVLf6hfR6";
+                    const webhookName = "Code Sharing Panel | KNH"; // Webhook Name
+                    const webhookIcon =
+                        "https://media.discordapp.net/attachments/1252939977109798912/1252940094617161779/aboutimg-removebg-preview.png?ex=6678a825&is=667756a5&hm=0524773e2e11dfde8ddc3fd1869886f0902369b6bf01cd8a52aa99c723e88b4f&=&format=webp&quality=lossless&width=423&height=423"; // Webhook Icon
+                    const freeCodeRoleID = "1253326180782968933";
+                    const title = document.getElementById("title").value;
+                    const desc = document.getElementById("desc").value;
+
+                    const payload = {
+                        content: `<@&${freeCodeRoleID}>`,
+                        username: webhookName,
+                        avatar_url: webhookIcon,
+                        embeds: [
+                            {
+                                title: "New Code from Code Sharing Panel",
+                                color: 2105376, // Decimal color for #202020
+                                fields: [
+                                    {
+                                        name: "Title",
+                                        value: title,
+                                        inline: true,
+                                    },
+                                    {
+                                        name: "Code",
+                                        value: desc,
+                                        inline: false,
+                                    },
+                                ],
+
+                                footer: {
+                                    text: `KNH Code Sharing | by Dev. Lloyd`,
+                                },
+                                timestamp: new Date(),
+                            },
+                        ],
+                    };
+
+                    fetch(webhookURL, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(payload),
+                    })
+                        .then((response) => {
+                            if (response.ok) {
+                                const button = document.querySelector("button");
+                                button.innerHTML = "Message Sent!";
+                                button.disabled = true;
+                                document.getElementById("contactForm").reset();
+                            } else {
+                                alert(
+                                    "There was an error sending your message. Please try again.",
+                                );
+                            }
+                        })
+                        .catch((error) => {
+                            alert(
+                                "There was an error sending your message. Please try again.",
+                            );
+                            console.error("Error:", error);
+                        });
+                });
+        </script>
+    </body>
+</html>
